@@ -5,7 +5,7 @@
         cols="12"
         md="8"
         :order-md="index % 2 == 0 ? '1' : ''"
-        :data-aos="index % 2 == 0 ? 'fade-left' : 'fade-left'"
+        :data-aos="index % 2 == 0 ? 'fade-left' : 'fade-right'"
       >
         <video
           class="img-fluid"
@@ -27,17 +27,19 @@
       </v-col>
       <v-col cols="12" md="4">
         <v-container>
-          <div class="text-h4 text-uppercase font-bold">
-            {{ section.title }}
+          <div class="px-md-3">
+            <div class="text-h4 text-uppercase font-bold">
+              {{ section.title }}
+            </div>
+            <p class="muted--text">
+              {{ section.body }}
+            </p>
+            <app-btn
+              class="text-uppercase text-center"
+              :block="$vuetify.breakpoint.xs"
+              >Shop Now</app-btn
+            >
           </div>
-          <p class="muted--text">
-            {{ section.body }}
-          </p>
-          <app-btn
-            class="text-uppercase text-center"
-            :block="$vuetify.breakpoint.xs"
-            >Shop Now</app-btn
-          >
         </v-container>
       </v-col>
     </v-row>

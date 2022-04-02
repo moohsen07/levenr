@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
+    <v-app-bar app>
       <v-spacer></v-spacer>
       <v-toolbar-title>
-        <levenr-logo dark />
+        <levenr-logo />
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>

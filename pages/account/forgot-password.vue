@@ -10,7 +10,13 @@
           <label>Email</label>
           <v-text-field outlined placeholder="Enter Your Email"></v-text-field>
           <div class="submit-btn">
-            <v-btn block light large to="otp-code"
+            <v-btn
+              block
+              light
+              large
+              color="primary"
+              style="color: black"
+              to="otp-code"
               >Send verification code</v-btn
             >
           </div>

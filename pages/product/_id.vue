@@ -111,6 +111,7 @@ export default {
   data() {
     return {
       mainSwiper: {
+        autoplay: { delay: 4000 },
         speed: 800,
         effect: 'fade',
         loop: true,
@@ -214,6 +215,7 @@ export default {
       ],
     }
   },
+  loading: true,
 }
 </script>
 
@@ -221,6 +223,9 @@ export default {
 .product-page {
   .banner {
     overflow: hidden;
+    img {
+      height: 100vw;
+    }
     @media (min-width: 992px) {
       height: 100vh;
       .main-swiper {
@@ -254,8 +259,6 @@ export default {
     }
   }
   .description-expand {
-    max-width: 500px;
-    margin: auto;
     .description-content {
       position: relative;
       overflow: hidden;

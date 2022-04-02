@@ -1,19 +1,16 @@
 <template>
   <div class="cart-page">
-    <v-container>
-      <cart-header @backBtn="$router.back()" />
-      <v-row>
-        <v-col cols="12" sm="7" lg="6">
-          <cart-list />
-        </v-col>
-        <v-col class="d-none d-sm-block" sm="5" lg="4">
-          <amount-card style="background: #1e1e1e !important" />
-        </v-col>
-      </v-row>
-      <expantion-footer :axisY="0">
-        <amount-card />
-      </expantion-footer>
-    </v-container>
+    <v-row>
+      <v-col cols="12" sm="7" lg="8" data-aos="fade-up">
+        <cart-list />
+      </v-col>
+      <v-col class="d-none d-sm-block" sm="5" lg="4" data-aos="fade-up">
+        <amount-card style="background: #1e1e1e !important" />
+      </v-col>
+    </v-row>
+    <expantion-footer :axisY="0">
+      <amount-card />
+    </expantion-footer>
   </div>
 </template>
 

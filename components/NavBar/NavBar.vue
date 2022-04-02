@@ -12,21 +12,17 @@
       <v-spacer></v-spacer>
 
       <div class="nav-icons">
-        <v-btn dark icon>
+        <v-btn dark icon @click="searchWidget = true">
           <i class="las la-search"></i>
         </v-btn>
 
         <v-btn dark icon @click="cartDrawer = true">
           <i class="las la-shopping-bag"></i>
         </v-btn>
-
-        <v-btn
-          small
-          dark
-          icon
-          v-if="checkBreakpoints"
-          @click="navDrawer = true"
-        >
+        <v-btn dark icon v-if="$vuetify.breakpoint.mdAndUp" to="/account/login">
+          <i class="las la-user-alt"></i>
+        </v-btn>
+        <v-btn dark icon v-if="checkBreakpoints" @click="navDrawer = true">
           <i class="las la-bars"></i>
         </v-btn>
       </div>
@@ -51,6 +47,8 @@
     >
       <cart-drawer @closeDrawer="cartDrawer = false" />
     </v-navigation-drawer>
+
+    <search-widget v-model="searchWidget" @closeSearch="searchWidget = false" />
   </nav>
 </template>
 <script>
@@ -65,6 +63,7 @@ export default {
       listItems: [],
       navDrawer: false,
       cartDrawer: false,
+      searchWidget: false,
     }
   },
   async fetch() {

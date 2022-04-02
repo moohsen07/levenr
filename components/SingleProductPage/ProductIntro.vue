@@ -3,13 +3,15 @@
     <div class="product-name text-uppercase font-weight-bold text-h5">
       GHD Helios Professional Hair Dryer in plum
     </div>
-    <div class="product-rating d-flex justify-center justify-md-start mb-2">
-      <rating :value="4.5" :size="14" />
-    </div>
-    <div class="product-offer">
-      <v-chip small label light class="text-uppercase font-weight-bold"
-        >20% off</v-chip
-      >
+    <div class="d-flex justify-space-between align-center d-md-block">
+      <div class="product-rating d-flex mb-2">
+        <rating :value="4.5" :size="14" />
+      </div>
+      <div class="product-offer">
+        <v-chip small label light class="text-uppercase font-weight-bold"
+          >20% off</v-chip
+        >
+      </div>
     </div>
     <div
       class="
@@ -17,8 +19,8 @@
         font-weight-light
         muted--text
         text-body-2
-        mt-5
-        mb-3
+        mt-md-5
+        mb-md-3
       "
     >
       Give into desire with our 3-piece gift set featuring our award-winning
@@ -26,7 +28,7 @@
     </div>
     <div class="product-colors">
       <span class="text-caption text-capitalize muted--text">color : plum</span>
-      <div class="colors d-flex justify-center justify-md-start my-2">
+      <div class="colors d-flex my-2">
         <div
           class="color"
           v-for="(color, i) in colors"
@@ -48,8 +50,8 @@
         >
       </div>
     </div>
-    <div class="add-cart my-4 mx-4 mx-md-0">
-      <v-btn block light large class="font-weight-bold">Add To Basket</v-btn>
+    <div class="add-cart my-4">
+      <add-to-basket />
     </div>
     <div class="warranty-returns muted--text text-body-2 font-weight-light">
       <span class="d-block">21 day no quibble returns policy</span>
@@ -59,18 +61,20 @@
 </template>
 
 <script>
+import AddToBasket from '../UI/AddToBasket.vue'
 import AppBtn from '../UI/AppBtn.vue'
 import Rating from '../UI/Rating.vue'
 export default {
-  components: { AppBtn, Rating },
+  components: { AppBtn, Rating, AddToBasket },
   props: ['colors'],
 }
 </script>
 
 <style lang="scss">
 .product-intro {
+  padding: 0 10px;
   margin-top: 16px;
-  text-align: center;
+  // text-align: center;
   @media (min-width: 992px) {
     position: absolute;
     top: 50%;

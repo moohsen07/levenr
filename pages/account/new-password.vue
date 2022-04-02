@@ -23,7 +23,15 @@
           ></v-text-field>
 
           <div class="submit-btn">
-            <v-btn block light x-large to="login">Done</v-btn>
+            <v-btn
+              block
+              light
+              x-large
+              color="primary"
+              style="color: black"
+              to="login"
+              >Done</v-btn
+            >
           </div>
         </v-form>
       </div>

@@ -31,7 +31,15 @@
             @click:append="showPass = !showPass"
           ></v-text-field>
           <div class="submit-btn">
-            <v-btn type="submit" block x-large light>Sign in</v-btn>
+            <v-btn
+              type="submit"
+              block
+              x-large
+              light
+              color="primary"
+              style="color: black"
+              >Sign up
+            </v-btn>
           </div>
         </v-form>
       </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="add-cart-btn text-uppercase mt-4">
     <v-btn
-      class="overflow-hidden ralative px-0"
+      class="overflow-hidden ralative px-0 black--text"
       large
-      light
+      color="primary"
       block
       :loading="loading"
       :disabled="loading"

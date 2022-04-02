@@ -16,7 +16,6 @@
         </p>
       </div>
     </v-container>
-
     <v-select
       v-model="select"
       :items="filter"
@@ -25,6 +24,7 @@
       class="text-uppercase pl-3"
       style="width: 250px"
     ></v-select>
+
     <product-list />
 
     <app-panel-footer />

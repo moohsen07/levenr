@@ -17,7 +17,7 @@
           <div class="slide-title text-h6 text-uppercase font-bold text-center">
             GHD Platinum+ & Rehab
           </div>
-          <p class="subtitle-2 text-center muted--text">
+          <p class="caption text-center muted--text">
             Define and contour with the new ghd curve thin wand, a 14mm barrel
             creating tight curls from 3 seconds paired with ghd curly ever after
             for ultimate hold.

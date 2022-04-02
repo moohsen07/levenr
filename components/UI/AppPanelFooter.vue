@@ -1,29 +1,26 @@
 <template>
-  <v-app-bar v-if="$vuetify.breakpoint.xs" hide-on-scroll bottom rounded fixed>
-    <v-tabs
-      centered
-      grow
-      icons-and-text
-      background-color="white"
-      light
-      color="black"
-    >
-      <v-tab to="/">
-        Home
+  <v-app-bar
+    v-if="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm"
+    bottom
+    fixed
+  >
+    <v-tabs grow icons-and-text background-color="black" dark color="white">
+      <v-tab to="/" class="text-capitalize">
+        <!-- Home -->
         <i class="las la-home la-2x"></i>
       </v-tab>
 
-      <v-tab to="/category/hair drayer">
-        Discover
+      <v-tab to="/category/hair drayer" class="text-capitalize">
+        <!-- Discover -->
         <i class="las la-compass la-2x"></i>
       </v-tab>
 
-      <v-tab>
-        Orders
+      <v-tab class="text-capitalize" to="/account/orders">
+        <!-- Orders -->
         <i class="las la-archive la-2x"></i>
       </v-tab>
-      <v-tab to="/account/login">
-        Profile
+      <v-tab to="/account/login" class="text-capitalize">
+        <!-- Profile -->
         <i class="las la-user-alt la-2x"></i>
       </v-tab>
     </v-tabs>

@@ -14,7 +14,7 @@ import SwiperCore, {
   Pagination,
   Navigation,
   Autoplay,
-  Scrollbar
+
 } from "swiper/core";
 
 SwiperCore.use([EffectCoverflow, EffectFade, Thumbs, Pagination, Autoplay, Navigation]);

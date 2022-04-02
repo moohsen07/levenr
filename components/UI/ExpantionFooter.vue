@@ -9,7 +9,7 @@
         elevation="5"
         rounded="xl"
         class="rounded-b-0 pa-4 pt-0 d-block"
-        v-touch="{ down: () => swiper('down'), up: () => swiper('up') }"
+        v-touch="{ down: () => swipe('down'), up: () => swipe('up') }"
         ref="footer"
       >
         <div class="swipe-footer text-center muted--text">
@@ -30,9 +30,11 @@ export default {
     }
   },
   methods: {
-    swiper(dir) {
+    swipe(dir) {
       const footer = this.$refs.footer.$el
-      if (dir == 'down') footer.style.transform = 'translateY(200px)'
+      const footerHeight = footer.offsetHeight
+      if (dir == 'down')
+        footer.style.transform = `translateY(${footerHeight - 48}px)`
       else if (dir == 'up') footer.style.transform = 'translateY(0px)'
     },
   },

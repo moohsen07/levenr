@@ -1,8 +1,15 @@
 <template>
   <v-card rounded="lg" class="cart-item d-flex align-center pa-2 mb-3">
-    <v-btn class="remove-product" icon absolute right top small>
-      <i class="las la-times"></i>
-    </v-btn>
+    <div class="remove-product absolute">
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon small v-bind="attrs" v-on="on">
+            <i class="las la-times"></i>
+          </v-btn>
+        </template>
+        <span>Delete</span>
+      </v-tooltip>
+    </div>
     <div class="cart-item-img">
       <base-img img="cat4.webp" alt="Hair Dryer in plum" />
     </div>
@@ -13,21 +20,23 @@
       <v-card-subtitle class="text-caption px-0 pb-1 muted--text"
         >Give into desire with our 3-piece gift set featuring
       </v-card-subtitle>
-      <div class="d-flex align-center flex-wrap">
+      <div class="d-flex align-stretch flex-wrap">
         <quantity-box />
         <div
           class="
+            text-h6
             product-price
-            primary
-            text-body-2
-            font-weight-medium
-            black--text
+            primary--text
             ml-2
-            px-2
+            flex-grow-1
             rounded-lg
+            d-flex
+            justify-center
+            align-center
           "
         >
-          200 <span>EGP</span>
+          200
+          <span class="pl-1 overline align-self-end">EGP</span>
         </div>
       </div>
     </div>
@@ -51,9 +60,7 @@ export default {
     }
   }
   .product-price {
-    span {
-      font-size: 10px;
-    }
+    background: #333;
   }
   .remove-product {
     top: 5px !important;

@@ -1,12 +1,10 @@
 <template>
   <div class="quantity-box">
-    <v-btn-toggle rounded borderless color="primary" :dense="!size">
+    <v-btn-toggle borderless color="primary" :dense="!size">
       <v-btn :large="size" @click="changeQuantity('dec')">
         <i class="las la-minus la-lg"></i>
       </v-btn>
-      <span class="d-flex align-center px-5 text-body-1 rounded">{{
-        quantity
-      }}</span>
+      <span class="d-flex align-center px-5 text-body-1">{{ quantity }}</span>
       <v-btn :large="size" @click="changeQuantity('inc')">
         <i class="las la-plus la-lg"></i>
       </v-btn>
