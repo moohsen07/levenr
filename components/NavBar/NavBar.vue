@@ -1,6 +1,11 @@
 <template>
   <nav>
-    <v-app-bar absolute color="transparent" elevation="0">
+    <v-app-bar
+      :absolute="!fixedNav"
+      :fixed="fixedNav"
+      :color="fixedNav ? 'black' : 'transparent'"
+      :elevation="fixedNav ? 24 : 0"
+    >
       <v-toolbar-title>
         <levenr-logo v-if="!navDrawer" />
       </v-toolbar-title>
@@ -15,13 +20,53 @@
         <v-btn dark icon @click="searchWidget = true">
           <i class="las la-search"></i>
         </v-btn>
+        <v-menu
+          v-if="$vuetify.breakpoint.mdAndUp"
+          open-on-hover
+          transition="slide-y-transition"
+          attach
+          left
+          bottom
+          offset-y
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn dark v-bind="attrs" v-on="on" icon>
+              <i class="las la-user-alt"></i>
+            </v-btn>
+          </template>
 
+          <v-list class="py-0">
+            <v-list-item
+              class="px-3 py-1"
+              dense
+              color="muted"
+              to="/account/login"
+            >
+              <v-icon class="pr-1" dense>las la-user-alt</v-icon>
+              <v-list-item-title>Your Profile</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              class="px-3 py-1"
+              dense
+              color="muted"
+              to="/account/orders"
+            >
+              <v-icon class="pr-1" dense>las la-archive</v-icon>
+              <v-list-item-title>Your Orders</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn dark icon @click="cartDrawer = true">
-          <i class="las la-shopping-bag"></i>
+          <v-badge
+            :content="$store.getters['cart/cartLength']"
+            :value="$store.getters['cart/cartLength']"
+            color="red"
+            overlap
+          >
+            <v-icon> las la-shopping-bag </v-icon>
+          </v-badge>
         </v-btn>
-        <v-btn dark icon v-if="$vuetify.breakpoint.mdAndUp" to="/account/login">
-          <i class="las la-user-alt"></i>
-        </v-btn>
+
         <v-btn dark icon v-if="checkBreakpoints" @click="navDrawer = true">
           <i class="las la-bars"></i>
         </v-btn>
@@ -30,20 +75,22 @@
 
     <v-navigation-drawer
       v-model="navDrawer"
-      absolute
+      fixed
       right
       color="black"
       width="350px"
+      height="auto"
     >
       <nav-drawer :listItems="listItems" @closeDrawer="navDrawer = false" />
     </v-navigation-drawer>
 
     <v-navigation-drawer
       v-model="cartDrawer"
-      absolute
+      fixed
       right
       color="black"
       width="auto"
+      height="auto"
     >
       <cart-drawer @closeDrawer="cartDrawer = false" />
     </v-navigation-drawer>
@@ -64,6 +111,7 @@ export default {
       navDrawer: false,
       cartDrawer: false,
       searchWidget: false,
+      fixedNav: false,
     }
   },
   async fetch() {
@@ -114,9 +162,15 @@ export default {
     },
   },
   updated() {
-    if (this.navDrawer || this.cartDrawer)
+    if (this.navDrawer || this.cartDrawer || this.searchWidget)
       document.documentElement.style.overflowY = 'hidden'
     else document.documentElement.style.overflowY = 'auto'
+  },
+  mounted() {
+    window.onscroll = () => {
+      if (window.scrollY > 300) this.fixedNav = true
+      else this.fixedNav = false
+    }
   },
 }
 </script>

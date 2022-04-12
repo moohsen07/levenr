@@ -10,7 +10,7 @@
         <i class="las la-home la-2x"></i>
       </v-tab>
 
-      <v-tab to="/category/hair drayer" class="text-capitalize">
+      <v-tab to="/category" class="text-capitalize">
         <!-- Discover -->
         <i class="las la-compass la-2x"></i>
       </v-tab>

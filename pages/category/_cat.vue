@@ -44,6 +44,10 @@ export default {
           href: '/',
         },
         {
+          text: 'Category',
+          href: '/category',
+        },
+        {
           text: route.params.cat,
           disabled: true,
         },

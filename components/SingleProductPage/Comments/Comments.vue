@@ -20,7 +20,11 @@
         </div>
       </header>
 
-      <comment v-for="i in 7" :key="i" />
+      <v-row>
+        <v-col cols="12" md="6" v-for="i in 6" :key="i">
+          <comment />
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>

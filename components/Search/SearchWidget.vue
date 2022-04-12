@@ -80,7 +80,7 @@ export default {
 
 <style lang="scss">
 .search-widget {
-  position: absolute;
+  position: fixed;
   background: rgba($color: #000000, $alpha: 0.9);
   width: 100%;
   height: 100%;

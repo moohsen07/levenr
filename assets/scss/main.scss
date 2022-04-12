@@ -65,18 +65,20 @@ label {
 }
 
 .swiper-pagination {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) !important;
+  bottom: 0px !important;
 
   .swiper-pagination-bullet {
+    transition: 0.4s ease-in-out;
     background-color: #3f3f3f;
+    opacity: 1;
     margin-right: 5px;
+    border-radius: 10px;
+
 
     &.swiper-pagination-bullet-active {
-      width: 20px;
-      border-radius: 10px;
-      background: rgb(201, 109, 24);
+      width: 15px;
+      height: 7px;
+      background: #ce8e44;
     }
   }
 }

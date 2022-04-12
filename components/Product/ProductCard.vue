@@ -27,6 +27,25 @@
           class="text-decoration-none white--text"
           :to="`/product/${product.id}`"
         >
+          <div class="badges d-flex items-center flex-wrap">
+            <v-chip
+              class="text-uppercase font-weight-bold text-caption mr-2 mt-2"
+              label
+              color="red"
+              small
+              >free shipping</v-chip
+            >
+
+            <div v-if="product.discount">
+              <v-chip
+                class="font-weight-bold text-caption mt-2"
+                label
+                :light="$vuetify.theme.dark"
+                small
+                >{{ product.discount }}% OFF</v-chip
+              >
+            </div>
+          </div>
           <v-card-title
             class="
               product-card-title
@@ -64,15 +83,6 @@
               Egp</span
             >
           </div>
-          <div v-if="product.discount" class="offer">
-            <v-chip
-              class="font-weight-bold text-caption"
-              label
-              :light="$vuetify.theme.dark"
-              small
-              >{{ product.discount }}% OFF</v-chip
-            >
-          </div>
         </div>
         <add-to-basket />
       </div>
@@ -99,7 +109,6 @@ export default {
 <style lang="scss">
 .product-card {
   background-color: transparent !important;
-
   .product-card-title {
     word-break: normal;
   }
@@ -120,5 +129,46 @@ export default {
       }
     }
   }
+  // @media (min-width: 767px) {
+  //   &::before {
+  //     content: 'Free Shipping';
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+  //     transform: translate(29.29%, -100%) rotate(45deg);
+  //     color: #fff;
+  //     text-align: center;
+  //     border: 1px solid transparent;
+  //     border-bottom: 0;
+  //     transform-origin: bottom left;
+  //     padding: 5px 35px calc(6px + 5px);
+  //     background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% 6px
+  //       no-repeat #f55246;
+  //     background-clip: padding-box;
+  //     clip-path: polygon(
+  //       0 0,
+  //       100% 0,
+  //       100% 100%,
+  //       calc(100% - 6px) calc(100% - 6px),
+  //       6px calc(100% - 6px),
+  //       0 100%
+  //     );
+  //     -webkit-mask: linear-gradient(
+  //           135deg,
+  //           transparent calc(50% - 6px * 0.707),
+  //           #fff 0
+  //         )
+  //         bottom left,
+  //       linear-gradient(-135deg, transparent calc(50% - 6px * 0.707), #fff 0)
+  //         bottom right;
+  //     -webkit-mask-size: 300vmax 300vmax;
+  //     -webkit-mask-composite: destination-in;
+  //     mask-composite: intersect;
+  //     z-index: 5;
+  //     font-size: 12px;
+  //     text-transform: uppercase;
+  //     font-weight: bold;
+  //   }
+  // }
 }
 </style>

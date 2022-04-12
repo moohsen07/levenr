@@ -73,10 +73,8 @@
           GHD HELIOS™ PROFESSIONAL HAIR DRYER IN PLUM
         </div>
         <div class="d-flex align-center my-4">
-          <quantity-box size />
-          <div
-            class="product-price text-h4 font-weight-bold primary--text ml-4"
-          >
+          <!-- <quantity-box size /> -->
+          <div class="product-price text-h4 font-weight-bold primary--text">
             200 <span class="text-caption"> EGP </span>
           </div>
         </div>
@@ -95,7 +93,6 @@ import RelatedProducts from '~/components/SingleProductPage/RelatedProducts.vue'
 import Comments from '~/components/SingleProductPage/Comments/Comments.vue'
 import AddToBasket from '~/components/UI/AddToBasket.vue'
 import ExpantionFooter from '~/components/UI/ExpantionFooter.vue'
-import QuantityBox from '~/components/UI/QuantityBox.vue'
 export default {
   components: {
     BaseImg,
@@ -106,7 +103,6 @@ export default {
     Comments,
     AddToBasket,
     ExpantionFooter,
-    QuantityBox,
   },
   data() {
     return {

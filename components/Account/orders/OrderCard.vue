@@ -32,19 +32,27 @@
       </ul>
     </div>
     <div class="order-products black pa-3">
-      <swiper :options="options">
+      <swiper :options="options" class="py-2">
         <swiper-slide v-for="i in 4" :key="i">
           <order-product />
         </swiper-slide>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
+    <v-btn
+      block
+      color="primary"
+      class="black--text"
+      :to="$route.fullPath + '/order/' + id"
+      >Track The order</v-btn
+    >
   </v-card>
 </template>
 
 <script>
 import OrderProduct from './OrderProduct.vue'
 export default {
+  props: ['id'],
   components: {
     OrderProduct,
   },

@@ -57,6 +57,8 @@ export default {
 
 <style lang="scss">
 .expantion-footer {
+  position: relative;
+  z-index: 10;
   footer {
     transition: all 0.2s ease-in-out;
   }

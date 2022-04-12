@@ -32,6 +32,9 @@ export default {
           500: {
             slidesPerView: 2.5,
           },
+          776: {
+            slidesPerView: 3.5,
+          },
           1200: {
             slidesPerView: 4,
           },

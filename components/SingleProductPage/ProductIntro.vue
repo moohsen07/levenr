@@ -8,9 +8,25 @@
         <rating :value="4.5" :size="14" />
       </div>
       <div class="product-offer">
-        <v-chip small label light class="text-uppercase font-weight-bold"
-          >20% off</v-chip
-        >
+        <div class="badges d-flex items-center flex-wrap">
+          <v-chip
+            class="text-uppercase font-weight-bold text-caption mr-2 mt-2"
+            label
+            color="red"
+            small
+            >free shipping</v-chip
+          >
+
+          <div>
+            <v-chip
+              class="font-weight-bold text-caption mt-2"
+              label
+              :light="$vuetify.theme.dark"
+              small
+              >20% OFF</v-chip
+            >
+          </div>
+        </div>
       </div>
     </div>
     <div

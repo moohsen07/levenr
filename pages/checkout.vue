@@ -40,7 +40,8 @@
 <script>
 export default {
   layout: 'secondary',
-  asyncData({ route }) {
+  middleware: 'checkout',
+  asyncData({ route, redirect }) {
     const listItems = [
       {
         name: 'cart',
@@ -58,14 +59,13 @@ export default {
         url: 'payment',
       },
     ]
+
     return {
       listItems,
     }
   },
-  beforeCreate() {
-    if (this.$route.path === '/checkout') {
-      this.$router.push('/checkout/cart')
-    }
+  mounted() {
+    document.documentElement.style.overflowY = 'auto'
   },
 }
 </script>

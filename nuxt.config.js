@@ -89,7 +89,6 @@ export default {
           primary: '#F9D985',
           muted: '#bdbdbd'
         }
-
       }
     },
   },

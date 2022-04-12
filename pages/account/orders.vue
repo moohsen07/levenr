@@ -12,7 +12,7 @@
           </div>
           <div class="text-h4 font-weight-bold">Orders History</div>
           <p class="muted--text">
-            You can search or track your order by order number
+            You can search or track your order by order name or order number
           </p>
         </header>
       </v-container>
@@ -20,9 +20,9 @@
 
     <div class="track-order-container">
       <v-container>
-        <div class="track-order-search">
+        <div class="track-order-search mt-2">
           <v-text-field
-            v-model="search"
+            v-model.trim="search"
             outlined
             label="Track your order"
             type="text"
@@ -31,31 +31,21 @@
         </div>
         <div class="filter-orders">
           <v-select
-            class="d-inline-block mr-2"
+            class="text-capitalize d-inline-block mr-2"
             v-model="itemsByStatus.selected"
             :items="itemsByStatus.items"
             dense
             outlined
             hide-details="auto"
             background-color="#121212"
-            style="width: 120px"
-          ></v-select>
-
-          <v-select
-            class="d-inline-block"
-            v-model="itemsByDate.selected"
-            :items="itemsByDate.items"
-            dense
-            outlined
-            hide-details="auto"
-            background-color="#121212"
-            style="width: 120px"
+            style="width: 150px"
           ></v-select>
         </div>
       </v-container>
     </div>
     <!-- orders list -->
     <order-list />
+    <nuxt-child></nuxt-child>
     <app-panel-footer />
   </div>
 </template>
@@ -69,14 +59,18 @@ export default {
     return {
       search: '',
       itemsByStatus: {
-        selected: 'All',
-        items: ['All', 'Pending', 'On the way', 'Delivered'],
-      },
-      itemsByDate: {
-        selected: 'Date',
-        items: ['Date', 'Last Week', 'Last Month', 'Last Year'],
+        selected: 'all',
+        items: ['all', 'pending', 'on the way', 'delivered'],
       },
     }
+  },
+  methods: {
+    filterOrders(val) {
+      this.$store.dispatch('orders/filterOrders', val)
+    },
+    searchOrder() {
+      this.$store.dispatch('orders/searchOrder', this.search)
+    },
   },
 }
 </script>
@@ -90,7 +84,7 @@ export default {
     background-size: cover;
     header {
       position: absolute;
-      bottom: -10px;
+      bottom: -20px;
       .back-home {
         cursor: pointer;
       }
